@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multi-Platform Social Media Agent</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Multi-Platform Social Media Agent (Demo)</h1>
+
+        <form id="postForm">
+            <label>Text Content:</label>
+            <textarea id="text" rows="4" placeholder="Enter your post text"></textarea>
+
+            <label>Hashtags (comma separated):</label>
+            <input type="text" id="hashtags" placeholder="#AI,#Automation">
+
+            <label>Media (comma separated file names):</label>
+            <input type="text" id="media" placeholder="video.mp4,image.png">
+
+            <label>Select Platforms:</label>
+            <div class="platforms">
+                {% for platform in platforms %}
+                    <input type="checkbox" name="platform" value="{{ platform }}"> {{ platform }}<br>
+                {% endfor %}
+            </div>
+
+            <button type="submit">Post Content</button>
+        </form>
+
+        <h2>Simulation Output:</h2>
+        <div id="output"></div>
+
+        <button id="downloadBtn">Download All Posts</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
